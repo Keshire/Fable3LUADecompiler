@@ -1,6 +1,6 @@
 # Overview
 
-**Fable3LUADecompiler** is a lua decompiler for Havok Scripts from Fable 3.
+**Fable3LUADecompiler** is a lua decompiler for KoreVM from Fable 3.
 The initial code is based on https://github.com/JariKCoding/CoDLUIDecompiler but rewritten to work with Fable 3's opcodes and lua configs.
 
 ### What is it GOOD for?

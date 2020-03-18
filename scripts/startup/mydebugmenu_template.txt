@@ -1,6 +1,0 @@
-"", "My Debug Menu"
-	"", "My Submenu 1"
-		"Debug.WhateverYouLike()", "My first debug command"
-
-	"", "My Submenu 2"
-		"Debug.AndSoOn()", "You get the idea"
