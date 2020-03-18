@@ -1,0 +1,247 @@
+-- Decompiled with CoDLUIDecompiler by JariK
+
+-- OP Count: 0x4
+-- Constant Count: 0x2
+-- Registers Count: 0x2
+-- UpValue Count: 0x0
+-- SubFuncs Count: 0x1
+-- r(0) = g[0] // WorldMap
+	-- OP Count: 0xEB
+	-- Constant Count: 0x40
+	-- Registers Count: 0x1A
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function WorldMap.GetEntitiesFromDatabase(arg0, arg1)
+	-- r(3) = r(0).field(0) // arg0.GetMapRecords
+	-- r(4) = r(1) // arg1
+	local registerVal3 = arg0.GetMapRecords(arg1)
+	-- r(4) = g[1] // pairs
+	-- r(5) = r(3) // registerVal3
+	local registerVal4, registerVal5, registerVal6 = pairs(registerVal3)
+	for index7,value8 in registerVal4, registerVal5, registerVal6 do
+		-- skip the next [221] opcodes // advance 221 lines
+		-- r(9) = r(7):c[2] // index7:Exists
+		-- r(11) = c[3] // "WorldMapInfo"
+		local registerVal9 = index7:Exists("WorldMapInfo")
+		if registerVal9 then
+			-- r(9) = r(7):c[4] // index7:GetRecord
+			-- r(11) = c[3] // "WorldMapInfo"
+			registerVal9 = index7:GetRecord("WorldMapInfo")
+			-- r(10) = r(9):c[5] // registerVal9:IsNull
+			local registerVal10 = registerVal9:IsNull()
+			-- skip the next [209] opcodes // advance 209 lines
+			-- r(10) = r(7):c[4] // index7:GetRecord
+			-- r(12) = c[6] // "PhysicsSimpleScaledComponent"
+			registerVal10 = index7:GetRecord("PhysicsSimpleScaledComponent")
+			-- r(11) = r(10):c[5] // registerVal10:IsNull
+			local registerVal11 = registerVal10:IsNull()
+			if not registerVal10 and not registerVal11 then
+				-- r(11) = r(9):c[7] // registerVal9:GetString
+				-- r(13) = c[8] // "LevelOverride"
+				registerVal11 = registerVal9:GetString("LevelOverride")
+				if registerVal11 == "" then
+					-- r(11) = nil
+				end
+				local registerVal12 = {}
+				registerVal12.Name = value8
+				-- r(13) = r(10):c[12] // registerVal10:GetVector
+				-- r(15) = c[11] // "Position"
+				local registerVal13 = registerVal10:GetVector("Position")
+				registerVal12.Position = registerVal13
+				-- r(13) = r(10):c[14] // registerVal10:GetQuaternion
+				-- r(15) = c[15] // "Rotation"
+				registerVal13 = registerVal10:GetQuaternion("Rotation")
+				registerVal12.Orientation = registerVal13
+				-- r(13) = r(10):c[12] // registerVal10:GetVector
+				-- r(15) = c[16] // "Scale"
+				registerVal13 = registerVal10:GetVector("Scale")
+				-- r(13) = r(13):c[17] // registerVal13:GetX
+				registerVal13 = registerVal13:GetX()
+				registerVal12.Scale = registerVal13
+				-- r(13) = r(7):c[19] // index7:GetID
+				registerVal13 = index7:GetID()
+				registerVal12.RecordID = registerVal13
+				-- r(13) = r(0).field(21) // arg0.GetResourceIDFromRecord
+				-- r(14) = r(9) // registerVal9
+				-- r(15) = c[22] // "GameEntity"
+				registerVal13 = arg0.GetResourceIDFromRecord(registerVal9, "GameEntity")
+				registerVal12.EntityID = registerVal13
+				-- r(13) = r(9):c[24] // registerVal9:GetEnum
+				-- r(15) = c[25] // "EntityType"
+				registerVal13 = registerVal9:GetEnum("EntityType")
+				registerVal12.Type = registerVal13
+				registerVal12.LevelOverride = nil
+				-- r(13) = r(9):c[27] // registerVal9:GetFloat
+				-- r(15) = c[26] // "SelectionRadius"
+				registerVal13 = registerVal9:GetFloat("SelectionRadius")
+				registerVal12.SelectionRadius = registerVal13
+				-- r(13) = r(0).field(21) // arg0.GetResourceIDFromRecord
+				-- r(14) = r(9) // registerVal9
+				-- r(15) = c[29] // "Quest"
+				registerVal13 = arg0.GetResourceIDFromRecord(registerVal9, "Quest")
+				registerVal12.QuestID = registerVal13
+				-- r(13) = r(9):c[27] // registerVal9:GetFloat
+				-- r(15) = c[30] // "ZoomDistance"
+				registerVal13 = registerVal9:GetFloat("ZoomDistance")
+				registerVal12.ZoomDistance = registerVal13
+				-- r(13) = r(9):c[27] // registerVal9:GetFloat
+				-- r(15) = c[31] // "AttachmentScale"
+				registerVal13 = registerVal9:GetFloat("AttachmentScale")
+				registerVal12.AttachmentScale = registerVal13
+				-- r(13) = r(7):c[4] // index7:GetRecord
+				-- r(15) = c[32] // "GraphicAppearanceStaticMeshComponent"
+				registerVal13 = index7:GetRecord("GraphicAppearanceStaticMeshComponent")
+				-- r(14) = r(13):c[5] // registerVal13:IsNull
+				local registerVal14 = registerVal13:IsNull()
+				if not registerVal14 then
+					-- r(14) = r(0).field(21) // arg0.GetResourceIDFromRecord
+					-- r(15) = r(13) // registerVal13
+					-- r(16) = c[34] // "ModelFile"
+					registerVal14 = arg0.GetResourceIDFromRecord(registerVal13, "ModelFile")
+					registerVal12.MeshID = registerVal14
+				end
+				-- r(14) = r(12).field(33) // registerVal12.MeshID
+				if registerVal12.MeshID == "0" then
+					registerVal12.MeshID = nil
+				end
+				-- r(14) = r(7):c[2] // index7:Exists
+				-- r(16) = c[37] // "BobComponent"
+				registerVal14 = index7:Exists("BobComponent")
+				-- skip the next [22] opcodes // advance 22 lines
+				-- r(14) = r(7):c[4] // index7:GetRecord
+				-- r(16) = c[37] // "BobComponent"
+				registerVal14 = index7:GetRecord("BobComponent")
+				-- r(15) = r(14):c[5] // registerVal14:IsNull
+				local registerVal15 = registerVal14:IsNull()
+				if registerVal14 and not registerVal15 then
+					registerVal15 = {}
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[39] // "Amplitude"
+					local registerVal16 = registerVal14:GetFloat("Amplitude")
+					registerVal15.Amplitude = registerVal16
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[40] // "Period"
+					registerVal16 = registerVal14:GetFloat("Period")
+					registerVal15.Period = registerVal16
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[41] // "Altitude"
+					registerVal16 = registerVal14:GetFloat("Altitude")
+					registerVal15.Altitude = registerVal16
+					registerVal15.Wobble = 0.000000
+					registerVal12.BobAnim = registerVal15
+				end
+				-- r(14) = r(7):c[2] // index7:Exists
+				-- r(16) = c[44] // "CameraInfo"
+				registerVal14 = index7:Exists("CameraInfo")
+				-- skip the next [21] opcodes // advance 21 lines
+				-- r(14) = r(7):c[4] // index7:GetRecord
+				-- r(16) = c[44] // "CameraInfo"
+				registerVal14 = index7:GetRecord("CameraInfo")
+				-- r(15) = r(14):c[5] // registerVal14:IsNull
+				registerVal15 = registerVal14:IsNull()
+				if registerVal14 and not registerVal15 then
+					registerVal15 = {}
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[45] // "Tilt"
+					registerVal16 = registerVal14:GetFloat("Tilt")
+					registerVal15.Tilt = registerVal16
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[46] // "Dist"
+					registerVal16 = registerVal14:GetFloat("Dist")
+					registerVal15.Dist = registerVal16
+					-- r(16) = r(14):c[27] // registerVal14:GetFloat
+					-- r(18) = c[15] // "Rotation"
+					registerVal16 = registerVal14:GetFloat("Rotation")
+					registerVal15.Rotation = registerVal16
+					registerVal12.CameraInfo = registerVal15
+				end
+				-- r(14) = r(7):c[2] // index7:Exists
+				-- r(16) = c[47] // "Particles"
+				registerVal14 = index7:Exists("Particles")
+				-- skip the next [43] opcodes // advance 43 lines
+				-- r(14) = r(7):c[4] // index7:GetRecord
+				-- r(16) = c[47] // "Particles"
+				registerVal14 = index7:GetRecord("Particles")
+				-- r(15) = r(14):c[5] // registerVal14:IsNull
+				registerVal15 = registerVal14:IsNull()
+				if registerVal14 and not registerVal15 then
+					registerVal12.Particles = {}
+					-- r(15) = r(14):c[48] // registerVal14:GetNumSubRecords
+					registerVal15 = registerVal14:GetNumSubRecords()
+					-- r(16) = c[49] // 1.000000
+					-- r(17) = r(15) // registerVal15
+					-- r(18) = c[49] // 1.000000
+					for index16=1.000000, registerVal15, 1.000000 do
+						-- r(20) = r(14):c[50] // registerVal14:GetSubRecordAtIndex
+						-- r(22) = r(19) // index16
+						local registerVal20 = registerVal14:GetSubRecordAtIndex(index16)
+						-- r(21) = r(20):c[5] // registerVal20:IsNull
+						local registerVal21 = registerVal20:IsNull()
+						-- skip the next [20] opcodes // advance 20 lines
+						-- r(21) = r(20):c[2] // registerVal20:Exists
+						-- r(23) = c[51] // "DummyName"
+						registerVal21 = registerVal20:Exists("DummyName")
+						if not registerVal21 and registerVal21 then
+							-- r(21) = r(12).field(47) // registerVal12.Particles
+							local registerVal22 = {}
+							-- r(23) = r(20):c[7] // registerVal20:GetString
+							-- r(25) = c[51] // "DummyName"
+							local registerVal23 = registerVal20:GetString("DummyName")
+							registerVal22.DummyName = registerVal23
+							-- r(23) = r(20):c[53] // registerVal20:GetS32
+							-- r(25) = c[52] // "DummyIndex"
+							registerVal23 = registerVal20:GetS32("DummyIndex")
+							registerVal22.DummyIndex = registerVal23
+							-- r(23) = r(20):c[7] // registerVal20:GetString
+							-- r(25) = c[54] // "ParticleName"
+							registerVal23 = registerVal20:GetString("ParticleName")
+							registerVal22.ParticleName = registerVal23
+							registerVal12.Particles[index16] = registerVal22
+						end
+					end
+				end
+				-- r(14) = r(12).field(20) // registerVal12.EntityID
+				if registerVal12.EntityID == "0" then
+					registerVal12.EntityID = nil
+				end
+				-- r(14) = g[55] // table
+				-- r(14) = r(14).field(56) // table.insert
+				-- r(15) = r(2) // {}
+				-- r(16) = r(12) // registerVal12
+				table.insert({}, registerVal12)
+				-- skip the next [23] opcodes // advance 23 lines
+			else
+				-- r(9) = r(7):c[2] // index7:Exists
+				-- r(11) = c[57] // "SplineComponent"
+				registerVal9 = index7:Exists("SplineComponent")
+				if registerVal9 then
+					-- r(9) = r(7):c[4] // index7:GetRecord
+					-- r(11) = c[57] // "SplineComponent"
+					registerVal9 = index7:GetRecord("SplineComponent")
+					registerVal10 = {}
+					registerVal10.Name = value8
+					-- r(11) = g[58] // EWorldMapEntityType
+					-- r(11) = r(11).field(59) // EWorldMapEntityType.MAP_ENTITY_WANDER_ROUTE
+					registerVal10.Type = EWorldMapEntityType.MAP_ENTITY_WANDER_ROUTE
+					-- r(11) = g[61] // Spline
+					-- r(11) = r(11).field(62) // Spline.GetPathFromRecord
+					-- r(12) = r(9) // registerVal9
+					registerVal11 = Spline.GetPathFromRecord(registerVal9)
+					registerVal10.Points = registerVal11
+					-- r(11) = g[55] // table
+					-- r(11) = r(11).field(56) // table.insert
+					-- r(12) = r(2) // {}
+					-- r(13) = r(10) // registerVal10
+					table.insert({}, registerVal10)
+				end
+			end
+		end
+		-- skip the next [-223] opcodes // advance -223 lines
+	end
+	-- r(4) = r(0).field(63) // arg0.ShutDownMapVFSConfig
+	arg0.ShutDownMapVFSConfig()
+	return {}
+	-- return
+end
+
+-- return

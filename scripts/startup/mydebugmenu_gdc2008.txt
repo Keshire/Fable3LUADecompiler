@@ -1,0 +1,5 @@
+"", "GDC 2008"
+	"Debug.SetGlobalMagicEnabled([toggle:true])", "Toggle Spells"
+	"Debug.SetAllowSpellCastTableEdit([toggle:true])", "Toggle Spells UI"
+	"Debug.SetExperienceOrbsEnabled([toggle:true])", "Toggle Experience Orbs"
+	"GDC2008Demo.ActivateBreadCrumbTrail([toggle:true])", "Toggle Breadcrumb trail"

@@ -1,0 +1,559 @@
+-- Decompiled with CoDLUIDecompiler by JariK
+
+-- OP Count: 0xC
+-- Constant Count: 0x4
+-- Registers Count: 0x2
+-- UpValue Count: 0x0
+-- SubFuncs Count: 0x3
+VisualChangeScripts = {}
+-- r(0) = g[0] // VisualChangeScripts
+	-- OP Count: 0xF
+	-- Constant Count: 0x3
+	-- Registers Count: 0x8
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function VisualChangeScripts.SetVisualChangeIfPresent(arg0, arg1, arg2)
+	-- r(3) = r(1):c[0] // arg1:Exists
+	-- r(5) = r(2) // arg2
+	local registerVal3 = arg1:Exists(arg2)
+	if registerVal3 then
+		-- r(3) = g[1] // FNVHash
+		-- r(4) = r(2) // arg2
+		registerVal3 = FNVHash(arg2)
+		-- r(4) = g[1] // FNVHash
+		-- r(5) = r(1):c[2] // arg1:GetString
+		-- r(7) = r(2) // arg2
+		local registerVal4 = FNVHash(arg1:GetString(arg2))
+		arg0[registerVal3] = registerVal4
+	end
+	-- return
+end
+
+-- r(0) = g[0] // VisualChangeScripts
+	-- OP Count: 0x21B
+	-- Constant Count: 0x84
+	-- Registers Count: 0x1C
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function VisualChangeScripts.DefaultVisualChangeScript(arg0, arg1)
+	-- r(3) = c[0] // "SMALL"
+	-- r(4) = c[1] // "BASE"
+	-- r(5) = c[1] // "BASE"
+	-- r(6) = c[2] // "NONE"
+	{}.SizeSmall = "SMALL"
+	{}.SizeMedium = "MEDIUM"
+	{}.SizeLarge = "LARGE"
+	{}[3.000000] = "SE_HAMMER"
+	{}[2.000000] = "SE_SWORD"
+	{}[6.000000] = "SE_RIFLE"
+	{}[7.000000] = "SE_PISTOL"
+	{}.PrimaryMeshBase = "BASE"
+	{}.PrimaryMeshEvil1 = "EVIL1"
+	{}.PrimaryMeshGood1 = "GOOD1"
+	{}.PrimaryMeshAuroran = "AURORAN"
+	{}.PrimaryMeshIntricate = "INTRICATE"
+	{}.PrimaryMeshReaver = "REAVER"
+	{}.PrimaryMeshEvil2 = "EVIL2"
+	{}.PrimaryMeshOrganic = "ORGANIC"
+	{}.PrimaryMeshGood2 = "GOOD2"
+	{}.PrimaryMeshCrystal = "CRYSTAL"
+	{}.SecondaryMeshBase = "BASE"
+	{}.SecondaryMeshSpell = "SPELL"
+	{}.SecondaryMeshBone = "BONE"
+	{}.SecondaryMeshAuroran = "AURORAN"
+	{}.SecondaryMeshRoyal = "ROYAL"
+	{}.ParticleEffectLightning = "LIGHTNING"
+	{}.ParticleEffectFire = "FIRE"
+	{}.ParticleEffectShadow = "SHADOW"
+	{}.ParticleEffectSparkles = "HOLY"
+	{}.ParticleEffectBlood = "BLOOD"
+	{}.ParticleEffectEthereal = "ETHEREAL"
+	{}.ParticleEffectInk = "GOLDEN"
+	{}.ParticleEffectPoison = "POISON"
+	{}.LIGHTNING = {}
+	{}.FIRE = {}
+	{}.SHADOW = {}
+	{}.HOLY = {}
+	{}.BLOOD = {}
+	{}.ETHEREAL = {}
+	{}.GOLDEN = {}
+	{}.POISON = {}
+	-- r(13) = r(12).field(44) // {}.LIGHTNING
+	{}.LIGHTNING.SE_HAMMER = "fxaug_lightning_hammer"
+	-- r(13) = r(12).field(44) // {}.LIGHTNING
+	{}.LIGHTNING.SE_SWORD = "fxaug_lightning_blade"
+	-- r(13) = r(12).field(44) // {}.LIGHTNING
+	{}.LIGHTNING.SE_CURVEDSWORD = "fxaug_lightning_blade_curve"
+	-- r(13) = r(12).field(44) // {}.LIGHTNING
+	{}.LIGHTNING.SE_PISTOL = "fxaug_lightning_pistol"
+	-- r(13) = r(12).field(44) // {}.LIGHTNING
+	{}.LIGHTNING.SE_RIFLE = "fxaug_lightning_rifle"
+	-- r(13) = r(12).field(46) // {}.FIRE
+	{}.FIRE.SE_HAMMER = "fxaug_fire_hammer"
+	-- r(13) = r(12).field(46) // {}.FIRE
+	{}.FIRE.SE_SWORD = "fxaug_fire_blade"
+	-- r(13) = r(12).field(46) // {}.FIRE
+	{}.FIRE.SE_CURVEDSWORD = "fxaug_fire_blade_curve"
+	-- r(13) = r(12).field(46) // {}.FIRE
+	{}.FIRE.SE_PISTOL = "fxaug_fire_pistol"
+	-- r(13) = r(12).field(46) // {}.FIRE
+	{}.FIRE.SE_RIFLE = "fxaug_fire_rifle"
+	-- r(13) = r(12).field(48) // {}.SHADOW
+	{}.SHADOW.SE_HAMMER = "fxaug_shadow_hammer"
+	-- r(13) = r(12).field(48) // {}.SHADOW
+	{}.SHADOW.SE_SWORD = "fxaug_shadow_blade"
+	-- r(13) = r(12).field(48) // {}.SHADOW
+	{}.SHADOW.SE_CURVEDSWORD = "fxaug_shadow_blade_curve"
+	-- r(13) = r(12).field(48) // {}.SHADOW
+	{}.SHADOW.SE_PISTOL = "fxaug_shadow_pistol"
+	-- r(13) = r(12).field(48) // {}.SHADOW
+	{}.SHADOW.SE_RIFLE = "fxaug_shadow_rifle"
+	-- r(13) = r(12).field(50) // {}.HOLY
+	{}.HOLY.SE_HAMMER = "fxaug_holy_hammer"
+	-- r(13) = r(12).field(50) // {}.HOLY
+	{}.HOLY.SE_SWORD = "fxaug_holy_blade"
+	-- r(13) = r(12).field(50) // {}.HOLY
+	{}.HOLY.SE_CURVEDSWORD = "fxaug_holy_blade_curve"
+	-- r(13) = r(12).field(50) // {}.HOLY
+	{}.HOLY.SE_PISTOL = "fxaug_holy_pistol"
+	-- r(13) = r(12).field(50) // {}.HOLY
+	{}.HOLY.SE_RIFLE = "fxaug_holy_rifle"
+	-- r(13) = r(12).field(52) // {}.BLOOD
+	{}.BLOOD.SE_HAMMER = "fxaug_blood_hammer"
+	-- r(13) = r(12).field(52) // {}.BLOOD
+	{}.BLOOD.SE_SWORD = "fxaug_blood_blade"
+	-- r(13) = r(12).field(52) // {}.BLOOD
+	{}.BLOOD.SE_CURVEDSWORD = "fxaug_blood_blade_curve"
+	-- r(13) = r(12).field(52) // {}.BLOOD
+	{}.BLOOD.SE_PISTOL = "fxaug_blood_pistol"
+	-- r(13) = r(12).field(52) // {}.BLOOD
+	{}.BLOOD.SE_RIFLE = "fxaug_blood_rifle"
+	-- r(13) = r(12).field(54) // {}.ETHEREAL
+	{}.ETHEREAL.SE_HAMMER = "fxaug_ethereal_hammer"
+	-- r(13) = r(12).field(54) // {}.ETHEREAL
+	{}.ETHEREAL.SE_SWORD = "fxaug_ethereal_blade"
+	-- r(13) = r(12).field(54) // {}.ETHEREAL
+	{}.ETHEREAL.SE_CURVEDSWORD = "fxaug_ethereal_blade_curve"
+	-- r(13) = r(12).field(54) // {}.ETHEREAL
+	{}.ETHEREAL.SE_PISTOL = "fxaug_ethereal_pistol"
+	-- r(13) = r(12).field(54) // {}.ETHEREAL
+	{}.ETHEREAL.SE_RIFLE = "fxaug_ethereal_rifle"
+	-- r(13) = r(12).field(56) // {}.GOLDEN
+	{}.GOLDEN.SE_HAMMER = "fxaug_golden_hammer"
+	-- r(13) = r(12).field(56) // {}.GOLDEN
+	{}.GOLDEN.SE_SWORD = "fxaug_golden_blade"
+	-- r(13) = r(12).field(56) // {}.GOLDEN
+	{}.GOLDEN.SE_CURVEDSWORD = "fxaug_golden_blade_curve"
+	-- r(13) = r(12).field(56) // {}.GOLDEN
+	{}.GOLDEN.SE_PISTOL = "fxaug_golden_pistol"
+	-- r(13) = r(12).field(56) // {}.GOLDEN
+	{}.GOLDEN.SE_RIFLE = "fxaug_golden_rifle"
+	-- r(13) = r(12).field(58) // {}.POISON
+	{}.POISON.SE_HAMMER = "fxaug_poison_hammer"
+	-- r(13) = r(12).field(58) // {}.POISON
+	{}.POISON.SE_SWORD = "fxaug_poison_blade"
+	-- r(13) = r(12).field(58) // {}.POISON
+	{}.POISON.SE_CURVEDSWORD = "fxaug_poison_blade_curve"
+	-- r(13) = r(12).field(58) // {}.POISON
+	{}.POISON.SE_PISTOL = "fxaug_poison_pistol"
+	-- r(13) = r(12).field(58) // {}.POISON
+	{}.POISON.SE_RIFLE = "fxaug_poison_rifle"
+	{}.SE_SWORD = "Weapon.Weapon.Top"
+	{}.SE_HAMMER = "Weapon.Weapon.TrailBase"
+	{}.SE_PISTOL = "Weapon.Weapon.ProjectileEmitter"
+	{}.SE_RIFLE = "Weapon.Weapon.ProjectileEmitter"
+	-- r(14) = g[103] // Weapon
+	-- r(14) = r(14).field(104) // Weapon.GetWeaponType
+	-- r(15) = r(1) // arg1
+	local registerVal14 = Weapon.GetWeaponType(arg1)
+	-- r(14) = r(8)[r(14)] // {}[registerVal14]
+	-- r(15) = g[105] // ipairs
+	-- r(16) = r(0) // arg0
+	local registerVal15, registerVal16, registerVal17 = ipairs(arg0)
+	for index18,value19 in registerVal15, registerVal16, registerVal17 do
+		-- skip the next [88] opcodes // advance 88 lines
+		-- r(20) = g[106] // GDB
+		-- r(20) = r(20).field(107) // GDB.GetRecord
+		-- r(21) = r(19) // value19
+		local registerVal20 = GDB.GetRecord(value19)
+		-- r(21) = r(20):c[107] // registerVal20:GetRecord
+		-- r(23) = c[108] // "VisualChangeEffects"
+		local registerVal21 = registerVal20:GetRecord("VisualChangeEffects")
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[110] // "VisualChangePrimaryColourForeground"
+		local registerVal22 = registerVal21:Exists("VisualChangePrimaryColourForeground")
+		if registerVal22 then
+			-- r(22) = g[111] // FNVHash
+			-- r(23) = c[110] // "VisualChangePrimaryColourForeground"
+			registerVal22 = FNVHash("VisualChangePrimaryColourForeground")
+			-- r(23) = g[111] // FNVHash
+			-- r(24) = r(21):c[112] // registerVal21:GetString
+			-- r(26) = c[110] // "VisualChangePrimaryColourForeground"
+			local registerVal23 = FNVHash(registerVal21:GetString("VisualChangePrimaryColourForeground"))
+			{}[registerVal22] = registerVal23
+		end
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[113] // "VisualChangePrimaryColourBackground"
+		registerVal22 = registerVal21:Exists("VisualChangePrimaryColourBackground")
+		if registerVal22 then
+			-- r(22) = g[111] // FNVHash
+			-- r(23) = c[113] // "VisualChangePrimaryColourBackground"
+			registerVal22 = FNVHash("VisualChangePrimaryColourBackground")
+			-- r(23) = g[111] // FNVHash
+			-- r(24) = r(21):c[112] // registerVal21:GetString
+			-- r(26) = c[113] // "VisualChangePrimaryColourBackground"
+			registerVal23 = FNVHash(registerVal21:GetString("VisualChangePrimaryColourBackground"))
+			{}[registerVal22] = registerVal23
+		end
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[114] // "VisualChangeSecondaryMesh"
+		registerVal22 = registerVal21:Exists("VisualChangeSecondaryMesh")
+		-- skip the next [18] opcodes // advance 18 lines
+		-- r(22) = g[111] // FNVHash
+		-- r(23) = c[114] // "VisualChangeSecondaryMesh"
+		registerVal22 = FNVHash("VisualChangeSecondaryMesh")
+		-- r(23) = g[111] // FNVHash
+		-- r(24) = r(21):c[112] // registerVal21:GetString
+		-- r(26) = c[114] // "VisualChangeSecondaryMesh"
+		registerVal23 = FNVHash(registerVal21:GetString("VisualChangeSecondaryMesh"))
+		{}[registerVal22] = registerVal23
+		if registerVal22 and {}[registerVal14] == "SE_HAMMER" then
+			-- r(22) = r(21):c[112] // registerVal21:GetString
+			-- r(24) = c[114] // "VisualChangeSecondaryMesh"
+			registerVal22 = registerVal21:GetString("VisualChangeSecondaryMesh")
+			-- r(23) = r(21):c[112] // registerVal21:GetString
+			-- r(25) = c[114] // "VisualChangeSecondaryMesh"
+			registerVal23 = registerVal21:GetString("VisualChangeSecondaryMesh")
+			-- r(5) = r(10)[r(23)] // {}[registerVal23]
+		end
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[115] // "VisualChangePrimaryMesh"
+		registerVal22 = registerVal21:Exists("VisualChangePrimaryMesh")
+		if registerVal22 then
+			-- r(22) = g[111] // FNVHash
+			-- r(23) = c[115] // "VisualChangePrimaryMesh"
+			registerVal22 = FNVHash("VisualChangePrimaryMesh")
+			-- r(23) = g[111] // FNVHash
+			-- r(24) = r(21):c[112] // registerVal21:GetString
+			-- r(26) = c[115] // "VisualChangePrimaryMesh"
+			registerVal23 = FNVHash(registerVal21:GetString("VisualChangePrimaryMesh"))
+			{}[registerVal22] = registerVal23
+			-- r(22) = r(21):c[112] // registerVal21:GetString
+			-- r(24) = c[115] // "VisualChangePrimaryMesh"
+			registerVal22 = registerVal21:GetString("VisualChangePrimaryMesh")
+			-- r(4) = r(9)[r(22)] // {}[registerVal22]
+		end
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[116] // "VisualChangeSize"
+		registerVal22 = registerVal21:Exists("VisualChangeSize")
+		if registerVal22 then
+			if "SMALL" == "SMALL" then
+				-- r(3) = c[5] // "MEDIUM"
+				-- skip the next [3] opcodes // advance 3 lines
+			else
+				if "MEDIUM" == "MEDIUM" then
+					-- r(3) = c[7] // "LARGE"
+				end
+			end
+		end
+		-- skip the next [-90] opcodes // advance -90 lines
+	end
+	-- r(15) = g[105] // ipairs
+	-- r(16) = r(0) // arg0
+	registerVal15, registerVal16, registerVal17 = ipairs(arg0)
+	for index18,value19 in registerVal15, registerVal16, registerVal17 do
+		-- skip the next [61] opcodes // advance 61 lines
+		-- r(20) = g[106] // GDB
+		-- r(20) = r(20).field(107) // GDB.GetRecord
+		-- r(21) = r(19) // value19
+		registerVal20 = GDB.GetRecord(value19)
+		-- r(21) = r(20):c[107] // registerVal20:GetRecord
+		-- r(23) = c[108] // "VisualChangeEffects"
+		registerVal21 = registerVal20:GetRecord("VisualChangeEffects")
+		-- r(22) = r(21):c[109] // registerVal21:Exists
+		-- r(24) = c[117] // "VisualChangeParticleEffect"
+		registerVal22 = registerVal21:Exists("VisualChangeParticleEffect")
+		-- skip the next [49] opcodes // advance 49 lines
+		-- r(22) = r(21):c[112] // registerVal21:GetString
+		-- r(24) = c[117] // "VisualChangeParticleEffect"
+		registerVal22 = registerVal21:GetString("VisualChangeParticleEffect")
+		-- r(6) = r(11)[r(22)] // {}[registerVal22]
+		-- skip the next [43] opcodes // advance 43 lines
+		if registerVal22 and {}[registerVal22] and {}[registerVal14] then
+			if {}[registerVal14] == "SE_SWORD" then
+				-- skip the next [6] opcodes // advance 6 lines
+				-- skip the next [4] opcodes // advance 4 lines
+				-- skip the next [2] opcodes // advance 2 lines
+				if {}[registerVal22] ~= "EVIL1" and {}[registerVal22] ~= "GOOD1" and {}[registerVal22] == "GOOD2" or {}[registerVal22] == "AURORAN" then
+					-- r(23) = r(12)[r(6)] // {}[{}[registerVal22]]
+					-- r(23) = r(23).field(61) // {}[{}[registerVal22]].SE_CURVEDSWORD
+					-- skip the next [27] opcodes // advance 27 lines
+					-- r(23) = r(13)[r(14)] // {}[{}[registerVal14]]
+					-- skip the next [24] opcodes // advance 24 lines
+					-- r(23) = g[118] // CustomisableWeapon
+					-- r(23) = r(23).field(119) // CustomisableWeapon.AddWeaponParticleEffect
+					-- r(24) = r(1) // arg1
+					-- r(25) = r(12)[r(6)] // {}[{}[registerVal22]]
+					-- r(25) = r(25).field(61) // {}[{}[registerVal22]].SE_CURVEDSWORD
+					-- r(26) = r(13)[r(14)] // {}[{}[registerVal14]]
+					-- r(27) = c[120] // 1.000000
+					CustomisableWeapon.AddWeaponParticleEffect(arg1, {}[{}[registerVal22]].SE_CURVEDSWORD, {}[{}[registerVal14]], 1.000000)
+					-- skip the next [15] opcodes // advance 15 lines
+					-- r(23) = r(12)[r(6)] // {}[{}[registerVal22]]
+					-- r(23) = r(23)[r(14)] // {}[{}[registerVal22]][{}[registerVal14]]
+					-- skip the next [11] opcodes // advance 11 lines
+					-- r(23) = r(13)[r(14)] // {}[{}[registerVal14]]
+					if {}[{}[registerVal22]].SE_CURVEDSWORD and {}[{}[registerVal14]] and {}[{}[registerVal22]][{}[registerVal14]] and {}[{}[registerVal14]] then
+						-- r(23) = g[118] // CustomisableWeapon
+						-- r(23) = r(23).field(119) // CustomisableWeapon.AddWeaponParticleEffect
+						-- r(24) = r(1) // arg1
+						-- r(25) = r(12)[r(6)] // {}[{}[registerVal22]]
+						-- r(25) = r(25)[r(14)] // {}[{}[registerVal22]][{}[registerVal14]]
+						-- r(26) = r(13)[r(14)] // {}[{}[registerVal14]]
+						-- r(27) = c[120] // 1.000000
+						CustomisableWeapon.AddWeaponParticleEffect(arg1, {}[{}[registerVal22]][{}[registerVal14]], {}[{}[registerVal14]], 1.000000)
+					end
+				end
+			end
+		end
+		-- skip the next [-63] opcodes // advance -63 lines
+	end
+	if "LARGE" == "LARGE" then
+		-- r(15) = g[111] // FNVHash
+		-- r(16) = c[116] // "VisualChangeSize"
+		registerVal15 = FNVHash("VisualChangeSize")
+		-- r(16) = g[111] // FNVHash
+		-- r(17) = c[6] // "SizeLarge"
+		registerVal16 = FNVHash("SizeLarge")
+		{}[registerVal15] = registerVal16
+		-- skip the next [18] opcodes // advance 18 lines
+	else
+		if "LARGE" == "MEDIUM" then
+			-- r(15) = g[111] // FNVHash
+			-- r(16) = c[116] // "VisualChangeSize"
+			registerVal15 = FNVHash("VisualChangeSize")
+			-- r(16) = g[111] // FNVHash
+			-- r(17) = c[4] // "SizeMedium"
+			registerVal16 = FNVHash("SizeMedium")
+			{}[registerVal15] = registerVal16
+			-- skip the next [8] opcodes // advance 8 lines
+		else
+			-- r(15) = g[111] // FNVHash
+			-- r(16) = c[116] // "VisualChangeSize"
+			registerVal15 = FNVHash("VisualChangeSize")
+			-- r(16) = g[111] // FNVHash
+			-- r(17) = c[3] // "SizeSmall"
+			registerVal16 = FNVHash("SizeSmall")
+			{}[registerVal15] = registerVal16
+			-- r(3) = c[0] // "SMALL"
+		end
+	end
+	-- r(15) = g[103] // Weapon
+	-- r(15) = r(15).field(104) // Weapon.GetWeaponType
+	-- r(16) = r(1) // arg1
+	registerVal15 = Weapon.GetWeaponType(arg1)
+	-- r(16) = g[103] // Weapon
+	-- r(16) = r(16).field(104) // Weapon.GetWeaponType
+	-- r(17) = r(1) // arg1
+	registerVal16 = Weapon.GetWeaponType(arg1)
+	-- r(16) = r(8)[r(16)] // {}[registerVal16]
+	-- r(17) = c[121] // ";"
+	-- r(18) = r(3) // "SMALL"
+	-- r(19) = c[121] // ";"
+	-- r(20) = r(4) // {}[registerVal22]
+	-- r(21) = c[121] // ";"
+	-- r(22) = r(6) // {}[registerVal22]
+	-- r(16) = r(16)..r(17)..r(18)..r(19)..r(20)..r(21)..r(22) // ({}[registerVal16] .. ";" .. "SMALL" .. ";" .. {}[registerVal22] .. ";" .. {}[registerVal22])
+	-- r(17) = g[103] // Weapon
+	-- r(17) = r(17).field(122) // Weapon.SetSoundEventTag
+	-- r(18) = r(1) // arg1
+	-- r(19) = r(16) // ({}[registerVal16] .. ";" .. "SMALL" .. ";" .. {}[registerVal22] .. ";" .. {}[registerVal22])
+	Weapon.SetSoundEventTag(arg1, ({}[registerVal16] .. ";" .. "SMALL" .. ";" .. {}[registerVal22] .. ";" .. {}[registerVal22]))
+	if {}[registerVal14] == "SE_HAMMER" then
+		-- r(17) = g[103] // Weapon
+		-- r(17) = r(17).field(104) // Weapon.GetWeaponType
+		-- r(18) = r(1) // arg1
+		registerVal17 = Weapon.GetWeaponType(arg1)
+		-- r(17) = r(8)[r(17)] // {}[registerVal17]
+		-- r(18) = c[121] // ";"
+		-- r(19) = r(3) // "SMALL"
+		-- r(20) = c[121] // ";"
+		-- r(21) = r(5) // {}[registerVal23]
+		-- r(22) = c[121] // ";"
+		-- r(23) = r(6) // {}[registerVal22]
+		-- r(16) = r(17)..r(18)..r(19)..r(20)..r(21)..r(22)..r(23) // ({}[registerVal17] .. ";" .. "SMALL" .. ";" .. {}[registerVal23] .. ";" .. {}[registerVal22])
+		-- r(17) = g[103] // Weapon
+		-- r(17) = r(17).field(123) // Weapon.SetSoundEventBlockOverrideTag
+		-- r(18) = r(1) // arg1
+		-- r(19) = r(16) // ({}[registerVal17] .. ";" .. "SMALL" .. ";" .. {}[registerVal23] .. ";" .. {}[registerVal22])
+		Weapon.SetSoundEventBlockOverrideTag(arg1, ({}[registerVal17] .. ";" .. "SMALL" .. ";" .. {}[registerVal23] .. ";" .. {}[registerVal22]))
+	end
+	-- r(17) = g[124] // Gameflow
+	-- r(17) = r(17).field(125) // Gameflow.WeaponMeshOverride
+	if Gameflow.WeaponMeshOverride then
+		-- r(17) = c[16] // "PrimaryMeshBase"
+		-- r(18) = g[124] // Gameflow
+		-- r(18) = r(18).field(126) // Gameflow.PrimaryMeshOverride
+		if Gameflow.PrimaryMeshOverride then
+			-- r(18) = g[124] // Gameflow
+			-- r(17) = r(18).field(126) // Gameflow.PrimaryMeshOverride
+		end
+		-- r(18) = g[111] // FNVHash
+		-- r(19) = c[115] // "VisualChangePrimaryMesh"
+		local registerVal18 = FNVHash("VisualChangePrimaryMesh")
+		-- r(19) = g[111] // FNVHash
+		-- r(20) = r(17) // Gameflow.PrimaryMeshOverride
+		local registerVal19 = FNVHash(Gameflow.PrimaryMeshOverride)
+		{}[registerVal18] = registerVal19
+		-- r(18) = c[35] // "SecondaryMeshBase"
+		-- r(19) = g[124] // Gameflow
+		-- r(19) = r(19).field(127) // Gameflow.SecondaryMeshOverride
+		if Gameflow.SecondaryMeshOverride then
+			-- r(19) = g[124] // Gameflow
+			-- r(18) = r(19).field(127) // Gameflow.SecondaryMeshOverride
+		end
+		-- r(19) = g[111] // FNVHash
+		-- r(20) = c[114] // "VisualChangeSecondaryMesh"
+		registerVal19 = FNVHash("VisualChangeSecondaryMesh")
+		-- r(20) = g[111] // FNVHash
+		-- r(21) = r(18) // Gameflow.SecondaryMeshOverride
+		registerVal20 = FNVHash(Gameflow.SecondaryMeshOverride)
+		{}[registerVal19] = registerVal20
+		-- r(19) = c[3] // "SizeSmall"
+		-- r(20) = g[124] // Gameflow
+		-- r(20) = r(20).field(128) // Gameflow.PrimaryMeshSize
+		if Gameflow.PrimaryMeshSize then
+			-- r(20) = g[124] // Gameflow
+			-- r(19) = r(20).field(128) // Gameflow.PrimaryMeshSize
+		end
+		-- r(20) = g[111] // FNVHash
+		-- r(21) = c[116] // "VisualChangeSize"
+		registerVal20 = FNVHash("VisualChangeSize")
+		-- r(21) = g[111] // FNVHash
+		-- r(22) = r(19) // Gameflow.PrimaryMeshSize
+		registerVal21 = FNVHash(Gameflow.PrimaryMeshSize)
+		{}[registerVal20] = registerVal21
+		-- r(20) = g[124] // Gameflow
+		-- r(20) = r(20).field(129) // Gameflow.PrimaryColour
+		if Gameflow.PrimaryColour then
+			-- r(20) = g[111] // FNVHash
+			-- r(21) = c[113] // "VisualChangePrimaryColourBackground"
+			registerVal20 = FNVHash("VisualChangePrimaryColourBackground")
+			-- r(21) = g[111] // FNVHash
+			-- r(22) = g[124] // Gameflow
+			-- r(22) = r(22).field(129) // Gameflow.PrimaryColour
+			registerVal21 = FNVHash(Gameflow.PrimaryColour)
+			{}[registerVal20] = registerVal21
+		end
+		-- r(20) = g[124] // Gameflow
+		-- r(20) = r(20).field(130) // Gameflow.ForegroundColour
+		if Gameflow.ForegroundColour then
+			-- r(20) = g[111] // FNVHash
+			-- r(21) = c[110] // "VisualChangePrimaryColourForeground"
+			registerVal20 = FNVHash("VisualChangePrimaryColourForeground")
+			-- r(21) = g[111] // FNVHash
+			-- r(22) = g[124] // Gameflow
+			-- r(22) = r(22).field(130) // Gameflow.ForegroundColour
+			registerVal21 = FNVHash(Gameflow.ForegroundColour)
+			{}[registerVal20] = registerVal21
+		end
+		-- r(20) = g[124] // Gameflow
+		-- r(20) = r(20).field(131) // Gameflow.ParticleEffect
+		-- skip the next [51] opcodes // advance 51 lines
+		-- r(20) = g[124] // Gameflow
+		-- r(6) = r(20).field(131) // Gameflow.ParticleEffect
+		-- skip the next [47] opcodes // advance 47 lines
+		if Gameflow.ParticleEffect and Gameflow.ParticleEffect and {}[registerVal14] then
+			if {}[registerVal14] == "SE_SWORD" then
+				-- r(20) = r(9)[r(17)] // {}[Gameflow.PrimaryMeshOverride]
+				-- skip the next [9] opcodes // advance 9 lines
+				-- r(20) = r(9)[r(17)] // {}[Gameflow.PrimaryMeshOverride]
+				-- skip the next [6] opcodes // advance 6 lines
+				-- r(20) = r(9)[r(17)] // {}[Gameflow.PrimaryMeshOverride]
+				-- skip the next [3] opcodes // advance 3 lines
+				-- r(20) = r(9)[r(17)] // {}[Gameflow.PrimaryMeshOverride]
+				if {}[Gameflow.PrimaryMeshOverride] ~= "EVIL1" and {}[Gameflow.PrimaryMeshOverride] ~= "GOOD1" and {}[Gameflow.PrimaryMeshOverride] == "GOOD2" or {}[Gameflow.PrimaryMeshOverride] == "AURORAN" then
+					-- r(20) = r(12)[r(6)] // {}[Gameflow.ParticleEffect]
+					-- r(20) = r(20).field(61) // {}[Gameflow.ParticleEffect].SE_CURVEDSWORD
+					-- skip the next [27] opcodes // advance 27 lines
+					-- r(20) = r(13)[r(14)] // {}[{}[registerVal14]]
+					-- skip the next [24] opcodes // advance 24 lines
+					-- r(20) = g[118] // CustomisableWeapon
+					-- r(20) = r(20).field(119) // CustomisableWeapon.AddWeaponParticleEffect
+					-- r(21) = r(1) // arg1
+					-- r(22) = r(12)[r(6)] // {}[Gameflow.ParticleEffect]
+					-- r(22) = r(22).field(61) // {}[Gameflow.ParticleEffect].SE_CURVEDSWORD
+					-- r(23) = r(13)[r(14)] // {}[{}[registerVal14]]
+					-- r(24) = c[120] // 1.000000
+					CustomisableWeapon.AddWeaponParticleEffect(arg1, {}[Gameflow.ParticleEffect].SE_CURVEDSWORD, {}[{}[registerVal14]], 1.000000)
+					-- skip the next [15] opcodes // advance 15 lines
+					-- r(20) = r(12)[r(6)] // {}[Gameflow.ParticleEffect]
+					-- r(20) = r(20)[r(14)] // {}[Gameflow.ParticleEffect][{}[registerVal14]]
+					-- skip the next [11] opcodes // advance 11 lines
+					-- r(20) = r(13)[r(14)] // {}[{}[registerVal14]]
+					if {}[Gameflow.ParticleEffect].SE_CURVEDSWORD and {}[{}[registerVal14]] and {}[Gameflow.ParticleEffect][{}[registerVal14]] and {}[{}[registerVal14]] then
+						-- r(20) = g[118] // CustomisableWeapon
+						-- r(20) = r(20).field(119) // CustomisableWeapon.AddWeaponParticleEffect
+						-- r(21) = r(1) // arg1
+						-- r(22) = r(12)[r(6)] // {}[Gameflow.ParticleEffect]
+						-- r(22) = r(22)[r(14)] // {}[Gameflow.ParticleEffect][{}[registerVal14]]
+						-- r(23) = r(13)[r(14)] // {}[{}[registerVal14]]
+						-- r(24) = c[120] // 1.000000
+						CustomisableWeapon.AddWeaponParticleEffect(arg1, {}[Gameflow.ParticleEffect][{}[registerVal14]], {}[{}[registerVal14]], 1.000000)
+					end
+				end
+			end
+		end
+		-- r(20) = g[103] // Weapon
+		-- r(20) = r(20).field(104) // Weapon.GetWeaponType
+		-- r(21) = r(1) // arg1
+		registerVal20 = Weapon.GetWeaponType(arg1)
+		-- r(20) = r(8)[r(20)] // {}[registerVal20]
+		-- r(21) = c[121] // ";"
+		-- r(22) = r(7)[r(19)] // {}[Gameflow.PrimaryMeshSize]
+		-- r(23) = c[121] // ";"
+		-- r(24) = r(9)[r(17)] // {}[Gameflow.PrimaryMeshOverride]
+		-- r(25) = c[121] // ";"
+		-- r(26) = r(6) // Gameflow.ParticleEffect
+		-- r(16) = r(20)..r(21)..r(22)..r(23)..r(24)..r(25)..r(26) // ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.PrimaryMeshOverride] .. ";" .. Gameflow.ParticleEffect)
+		-- r(20) = g[103] // Weapon
+		-- r(20) = r(20).field(122) // Weapon.SetSoundEventTag
+		-- r(21) = r(1) // arg1
+		-- r(22) = r(16) // ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.PrimaryMeshOverride] .. ";" .. Gameflow.ParticleEffect)
+		Weapon.SetSoundEventTag(arg1, ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.PrimaryMeshOverride] .. ";" .. Gameflow.ParticleEffect))
+		if {}[registerVal14] == "SE_HAMMER" then
+			-- r(20) = g[103] // Weapon
+			-- r(20) = r(20).field(104) // Weapon.GetWeaponType
+			-- r(21) = r(1) // arg1
+			registerVal20 = Weapon.GetWeaponType(arg1)
+			-- r(20) = r(8)[r(20)] // {}[registerVal20]
+			-- r(21) = c[121] // ";"
+			-- r(22) = r(7)[r(19)] // {}[Gameflow.PrimaryMeshSize]
+			-- r(23) = c[121] // ";"
+			-- r(24) = r(10)[r(18)] // {}[Gameflow.SecondaryMeshOverride]
+			-- r(25) = c[121] // ";"
+			-- r(26) = r(6) // Gameflow.ParticleEffect
+			-- r(16) = r(20)..r(21)..r(22)..r(23)..r(24)..r(25)..r(26) // ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.SecondaryMeshOverride] .. ";" .. Gameflow.ParticleEffect)
+			-- r(20) = g[103] // Weapon
+			-- r(20) = r(20).field(123) // Weapon.SetSoundEventBlockOverrideTag
+			-- r(21) = r(1) // arg1
+			-- r(22) = r(16) // ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.SecondaryMeshOverride] .. ";" .. Gameflow.ParticleEffect)
+			Weapon.SetSoundEventBlockOverrideTag(arg1, ({}[registerVal20] .. ";" .. {}[Gameflow.PrimaryMeshSize] .. ";" .. {}[Gameflow.SecondaryMeshOverride] .. ";" .. Gameflow.ParticleEffect))
+		end
+	end
+	return {}
+	-- return
+end
+
+-- r(0) = g[0] // VisualChangeScripts
+	-- OP Count: 0x3
+	-- Constant Count: 0x0
+	-- Registers Count: 0x3
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function VisualChangeScripts.GauntletVisualChangeScript(arg0, arg1)
+	return {}
+	-- return
+end
+
+-- return

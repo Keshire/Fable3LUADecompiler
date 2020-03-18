@@ -1,0 +1,71 @@
+-- Decompiled with CoDLUIDecompiler by JariK
+
+-- OP Count: 0xF
+-- Constant Count: 0x5
+-- Registers Count: 0x2
+-- UpValue Count: 0x0
+-- SubFuncs Count: 0x4
+CommunityService = {}
+-- r(0) = g[0] // CommunityService
+	-- OP Count: 0x7
+	-- Constant Count: 0x0
+	-- Registers Count: 0x3
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function CommunityService.IsDebtPaid(arg0, arg1)
+	if arg0 <= arg1 then
+		-- r(2) = true
+		return true
+	end
+	-- r(2) = false
+	return false
+	-- return
+end
+
+-- r(0) = g[0] // CommunityService
+	-- OP Count: 0x7
+	-- Constant Count: 0x1
+	-- Registers Count: 0x4
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function CommunityService.GetRemainingDebt(arg0, arg1)
+	if (arg0 - arg1) < 0.000000 then
+		-- r(3) = c[0] // 0.000000
+		return 0.000000
+	end
+	return (arg0 - arg1)
+	-- return
+end
+
+-- r(0) = g[0] // CommunityService
+	-- OP Count: 0x6
+	-- Constant Count: 0x2
+	-- Registers Count: 0x5
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function CommunityService.FinishCommunityService(arg0, arg1)
+	-- r(2) = g[0] // VillageCrimeManager
+	-- r(2) = r(2).field(1) // VillageCrimeManager.FinishCommunityService
+	-- r(3) = r(0) // arg0
+	-- r(4) = r(1) // arg1
+	VillageCrimeManager.FinishCommunityService(arg0, arg1)
+	-- return
+end
+
+-- r(0) = g[0] // CommunityService
+	-- OP Count: 0x7
+	-- Constant Count: 0x2
+	-- Registers Count: 0x7
+	-- UpValue Count: 0x0
+	-- SubFuncs Count: 0x0
+function CommunityService.FailCommunityService(arg0, arg1, arg2)
+	-- r(3) = g[0] // VillageCrimeManager
+	-- r(3) = r(3).field(1) // VillageCrimeManager.FailCommunityService
+	-- r(4) = r(0) // arg0
+	-- r(5) = r(1) // arg1
+	-- r(6) = r(2) // arg2
+	VillageCrimeManager.FailCommunityService(arg0, arg1, arg2)
+	-- return
+end
+
+-- return

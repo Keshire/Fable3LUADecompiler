@@ -1,0 +1,16 @@
+-- Decompiled with CoDLUIDecompiler by JariK
+
+-- OP Count: 0x9
+-- Constant Count: 0x3
+-- Registers Count: 0x2
+-- UpValue Count: 0x0
+-- SubFuncs Count: 0x0
+-- r(0) = g[0] // Debug
+-- r(0) = r(0).field(1) // Debug.SetTutorialsEnabled
+-- r(1) = true
+Debug.SetTutorialsEnabled(true)
+-- r(0) = g[0] // Debug
+-- r(0) = r(0).field(2) // Debug.SetDeathMinigameEnabled
+-- r(1) = true
+Debug.SetDeathMinigameEnabled(true)
+-- return
