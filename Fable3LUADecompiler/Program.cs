@@ -10,7 +10,7 @@ namespace Fable3LUADecompiler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("CoD LUI Decompiler by JariK");
+            Console.WriteLine("Fable 3 LUA Decompiler");
             string[] files = new string[1];
             if (args.Length == 0)
             {
