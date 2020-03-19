@@ -20,4 +20,17 @@ namespace Fable3LUADecompiler
                 return this.value;
         }
     }
+    class LuaLocal
+    {
+        //Always a string, no ""
+        //public Datatype.Type type;
+        public string value;
+        public int start;
+        public int end;
+
+        public string getString()
+        {
+          return this.value;
+        }
+    }
 }

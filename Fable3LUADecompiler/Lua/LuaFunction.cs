@@ -16,7 +16,6 @@ namespace Fable3LUADecompiler
         public int debug_start_line;
         public int debug_last_line;
         public int sizelineinfo;
-        public List<int> lines;
         public int sizelocvars;
         public int sizeupvalues;
 
@@ -34,6 +33,7 @@ namespace Fable3LUADecompiler
         public LuaInstruction[] Instructions;
         public List<string> upvalue;
         public LuaConstant[] Constants;
+        public LuaLocal[] Locals;
         public LuaRegister[] Registers;
         public LuaFunction[] SubFunctions;
 
@@ -200,7 +200,9 @@ namespace Fable3LUADecompiler
                         constant.value = (this.inputReader.ReadByte() == 1) ? "true" : "false";
                         break;
                     case Datatype.Type.Number:
-                        constant.value = this.inputReader.ReadSingle().ToString("0.000000");
+                        var formatted = this.inputReader.ReadSingle();
+                        if (formatted % 1 == 0) { constant.value = ((int)formatted).ToString(); }
+                        else { constant.value = formatted.ToString("0.000000000"); }
                         break;
                     case Datatype.Type.String:
                         int stringLength = this.inputReader.ReadInt32();
@@ -233,13 +235,17 @@ namespace Fable3LUADecompiler
             this.sizelineinfo = this.inputReader.ReadInt32();
             for (var i = 0; i < this.sizelineinfo; i++) { this.inputReader.ReadInt32(); }
 
+            
             this.sizelocvars = this.inputReader.ReadInt32();
+            this.Locals = new LuaLocal[this.sizelocvars];
             for (var i = 0; i < this.sizelocvars; i++)
             {
+                LuaLocal local = new LuaLocal();
                 int stringLength = this.inputReader.ReadInt32();
-                this.inputReader.ReadFixedString(stringLength);
-                this.inputReader.ReadInt32(); //Line start
-                this.inputReader.ReadInt32(); //Line end
+                local.value = this.inputReader.ReadFixedString(stringLength);
+                local.start = this.inputReader.ReadInt32(); //Line start
+                local.end = this.inputReader.ReadInt32(); //Line end
+                this.Locals[i] = local;
             }
 
             this.sizeupvalues = this.inputReader.ReadInt32();
@@ -296,13 +302,18 @@ namespace Fable3LUADecompiler
                 int argIndex = 0, fixedIndex = 0;
                 while (argIndex < this.numparams)
                 {
-                    if (this.upvalue.Contains("arg" + fixedIndex))
+                    var local = this.Locals[fixedIndex].value;
+
+                    if (this.upvalue.Contains(local))
                     {
                         fixedIndex++;
+                        local = this.Locals[fixedIndex].value;
                         continue;
                     }
-                    this.Registers[argIndex].initialze("arg" + fixedIndex);
-                    outputWriter.Write(((argIndex > 0) ? ", " : "") + "arg" + fixedIndex++);
+                    this.Registers[argIndex].initialze(local);
+                    
+                    outputWriter.Write(((argIndex > 0) ? ", " : "") + local);
+                    fixedIndex++;
                     argIndex++;
                 }
                 if (this.is_vararg)
@@ -406,6 +417,10 @@ namespace Fable3LUADecompiler
                     {
                         this.writeLine(String.Format("until {0}", expression));
                     }
+                    else if (condition.type == LuaCondition.Type.While)
+                    {
+                        this.writeLine(String.Format("until {0}", expression));
+                    }
                     return true;
                 }
             }
@@ -475,6 +490,8 @@ namespace Fable3LUADecompiler
                     {
                         if(LuaOpCode.isConditionOPCode(this, i + this.Instructions[i].sBx + 1))
                         {
+                            this.conditions.Add(new LuaCondition(i + this.Instructions[i].sBx, LuaCondition.Type.While));
+                            this.conditions.Add(new LuaCondition(i, LuaCondition.Type.End));
                             this.Instructions[i].visited = true;
                         }
                     }
@@ -492,6 +509,8 @@ namespace Fable3LUADecompiler
                     {
                         if (LuaOpCode.isConditionOPCode(this, i - 1))
                         {
+                            this.conditions.Add(new LuaCondition(i + this.Instructions[i].sBx, LuaCondition.Type.DoWhile));
+                            this.conditions.Add(new LuaCondition(i, LuaCondition.Type.End));
                             this.Instructions[i].visited = true;
                         }
                     }
